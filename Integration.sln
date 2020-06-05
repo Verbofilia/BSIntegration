@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaselinkerConnector", "Base
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{C548040E-FEF0-4A00-AAFD-833FB9815D86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubiektConnector", "SubiektConnector\SubiektConnector.csproj", "{F1AE9E37-6E89-417A-8845-01F29E822CB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C548040E-FEF0-4A00-AAFD-833FB9815D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C548040E-FEF0-4A00-AAFD-833FB9815D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C548040E-FEF0-4A00-AAFD-833FB9815D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1AE9E37-6E89-417A-8845-01F29E822CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AE9E37-6E89-417A-8845-01F29E822CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AE9E37-6E89-417A-8845-01F29E822CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AE9E37-6E89-417A-8845-01F29E822CB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

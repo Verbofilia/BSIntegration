@@ -1,5 +1,4 @@
-﻿using Common.Dto;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Common.Interfaces
 {
-    public interface ISourceConnector:IBaseConnector
+    public interface IBaseConnector
     {
-        Task<OrderDto> GetOrder(int orderId);
+        Task<bool> TestConnection();
     }
 }

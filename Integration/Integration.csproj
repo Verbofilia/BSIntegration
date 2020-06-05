@@ -58,6 +58,10 @@
       <Project>{c548040e-fef0-4a00-aafd-833fb9815d86}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SubiektConnector\SubiektConnector.csproj">
+      <Project>{f1ae9e37-6e89-417a-8845-01f29e822cb4}</Project>
+      <Name>SubiektConnector</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

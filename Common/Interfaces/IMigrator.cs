@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Common.Interfaces
 {
-    public interface ISourceConnector:IBaseConnector
+    public interface IMigrator
     {
-        Task<OrderDto> GetOrder(int orderId);
+        Task<OperationResult> MigrateOrder(int id);
+        OperationResult TestConnections();
     }
 }

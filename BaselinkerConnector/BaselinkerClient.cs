@@ -28,7 +28,8 @@ namespace BaselinkerConnector
             {
                 cfg.CreateMap<Product, ProductDto>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.name))
-                .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.quantity));
+                .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.quantity))
+                .ForMember(dest => dest.PriceBrutto, opt => opt.MapFrom(src => src.price_brutto));
                 cfg.CreateMap<Order, OrderDto>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.order_id))
                 .ForMember(dest => dest.DateAdd, opt => opt.MapFrom(src => src.date_add))

@@ -10,5 +10,7 @@ namespace BaselinkerConnector.Dto
     {
         public string name { get; set; }
         public int quantity { get; set; }
+
+        public decimal price_brutto { get; set; }
     }
 }

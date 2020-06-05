@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Common.Interfaces
 {
-    public interface ISourceConnector:IBaseConnector
+    public interface ITargetConnector:IBaseConnector
     {
-        Task<OrderDto> GetOrder(int orderId);
+        Task<bool> SubmitOrder(OrderDto order);
     }
 }
