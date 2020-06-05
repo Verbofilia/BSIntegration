@@ -14,13 +14,21 @@ namespace SubiektConnector
     public class SubiektClient:ITargetConnector
     {
 
+        private readonly Subiekt _subiekt;
+
+        public SubiektClient()
+        {
+            //requires some work to add lazy initialization for better user expierience 
+            //not that straight forward due to STA limitations
+            _subiekt = OpenSubiekt();
+        }
+        
         public async Task<bool> SubmitOrder(OrderDto order)
         {
             var res = await Task.Run(() =>
             {
-                var sub = OpenSubiekt();
 
-                SuDokument dok1 = sub.Dokumenty.Dodaj(SubiektDokumentEnum.gtaSubiektDokumentZK);
+                SuDokument dok1 = _subiekt.Dokumenty.Dodaj(SubiektDokumentEnum.gtaSubiektDokumentZK);
                 dok1.KontrahentId = 1;
 
                 //added to artificially change products due to missing external id,
@@ -44,7 +52,10 @@ namespace SubiektConnector
             {
                 try
                 {
-                    OpenSubiekt();
+                    var s = _subiekt;
+                    var v = s.Wersja;
+                    if (string.IsNullOrEmpty(v))
+                        return false;
                 }
                 catch
                 {
@@ -56,7 +67,7 @@ namespace SubiektConnector
         }
 
 
-        private Subiekt OpenSubiekt()
+        private static Subiekt OpenSubiekt()
         {
             //var dodatki = new Dodatki();
             var gt = new GT();
@@ -79,5 +90,6 @@ namespace SubiektConnector
             }
             return sub;
         }
+
     }
 }

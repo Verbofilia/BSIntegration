@@ -41,9 +41,9 @@ namespace Common.Services
                 _source,
                 _target
             };
-            var tasks = connectors.Select(conn => Task.Run(async () =>
+            var tasks = connectors.Select(conn => StartSTATask(async () =>
              {
-                 var checkRes = await _source.TestConnection();
+                 var checkRes = await conn.TestConnection();
                  if (!checkRes)
                  {
                      Interlocked.Increment(ref failed);
@@ -53,6 +53,25 @@ namespace Common.Services
             var res = Task.WhenAll(tasks);
             res.Wait();
             return new OperationResult(failed == 0);
+        }
+
+        public static Task<T> StartSTATask<T>(Func<T> func)
+        {
+            var tcs = new TaskCompletionSource<T>();
+            Thread thread = new Thread(() =>
+            {
+                try
+                {
+                    tcs.SetResult(func());
+                }
+                catch (Exception e)
+                {
+                    tcs.SetException(e);
+                }
+            });
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+            return tcs.Task;
         }
     }
 }

@@ -15,18 +15,8 @@ namespace Integration
         static void Main(string[] args)
         {
 
-
-            var mi = new MigratorService(new BaselinkerClient(), new SubiektClient());
-
-            var resc = mi.TestConnections();
-
-            var c = new BaselinkerClient();
-         //   var res3 = c.GetOrder(6561127).Result;
-            var s = c.TestConnection().Result;
-            var res = c.GetOrder(6534119).Result;
-
-            var sc = new SubiektConnector.SubiektClient();
-         //   var rr = sc.Test(res).Result;
+            var runner = new MainRunner();
+            runner.RunOnce();
         }
     }
 }
